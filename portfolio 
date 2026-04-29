@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash A - Creative Designer & Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1f35 100%);
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #a78bfa 0%, #ec4899 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #7c3aed;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: #a78bfa;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-box {
+            background: rgba(124, 58, 237, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #7c3aed;
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            background: rgba(124, 58, 237, 0.15);
+            transform: translateX(5px);
+        }
+
+        .skill-box h4 {
+            color: #a78bfa;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-box p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        .avatar-box {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(124, 58, 237, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            margin-left: auto;
+        }
+
+        /* Experience */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #7c3aed 0%, #ec4899 100%);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(124, 58, 237, 0.05);
+            border-radius: 10px;
+            border-left: 2px solid #a78bfa;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 1.5rem;
+            width: 14px;
+            height: 14px;
+            background: #7c3aed;
+            border-radius: 50%;
+            border: 3px solid #0f172a;
+        }
+
+        .timeline-item h3 {
+            color: #a78bfa;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .timeline-item .date {
+            color: #06b6d4;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-item p {
+            color: #cbd5e1;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #7c3aed;
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: #f1f5f9;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(124, 58, 237, 0.2);
+            color: #a78bfa;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(124, 58, 237, 0.4);
+        }
+
+        /* Skills Section */
+        .skills-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-color: #7c3aed;
+            transform: scale(1.05);
+        }
+
+        .skill-card h4 {
+            color: #a78bfa;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-label {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #ec4899;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(124, 58, 237, 0.05);
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+            padding: 2rem;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .avatar-box {
+                margin-left: 0;
+                margin-top: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AKASH</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Creative Designer & Developer</h1>
+            <p>Crafting stunning visuals and innovative digital solutions. Specializing in video production, graphic design, and cutting-edge technologies.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Who I Am</h3>
+                    <p>I'm a creative and detail-oriented B.E Computer Science student with a strong passion for graphic design and digital content creation. My journey spans from designing eye-catching posters and social media content to producing professional video content for television.</p>
+                    <p>With expertise in Canva, CapCut, Blender, and After Effects, I combine technical knowledge with artistic vision to deliver compelling digital experiences.</p>
+                    
+                    <h3 style="margin-top: 2.5rem;">Technical Stack</h3>
+                    <div class="skills-grid">
+                        <div class="skill-box">
+                            <h4>🎨 Design</h4>
+                            <p>Canva, Blender, After Effects</p>
+                        </div>
+                        <div class="skill-box">
+                            <h4>🎬 Video Editing</h4>
+                            <p>CapCut, Premiere Pro</p>
+                        </div>
+                        <div class="skill-box">
+                            <h4>💻 Programming</h4>
+                            <p>Java, UiPath, SQL</p>
+                        </div>
+                        <div class="skill-box">
+                            <h4>🤝 Soft Skills</h4>
+                            <p>Communication, Teamwork, Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="avatar-box">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>ZEE Tamil Channel</h3>
+                    <div class="date">2026 - Currently Working</div>
+                    <p>Contributing to the creation of television promos and program content. Handling live and pre-produced graphic elements including captions, title cards, and visual overlays while working closely with production staff to meet scheduled telecast timelines.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Panimalar Engineering College</h3>
+                    <div class="date">2025</div>
+                    <p>Produced and edited an official college advertisement video, managing on-site shooting and post-production. Collaborated with faculty and media team to deliver high-quality promotional content for College Entrance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">🤖</div>
+                    <h3>Social Media Posting Bot</h3>
+                    <p>Developed and deployed an automation solution using UiPath to schedule and publish content across LinkedIn, Facebook, and Twitter. Improved posting consistency and reduced manual workload.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">UiPath</span>
+                        <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Social Media</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🛡️</div>
+                    <h3>Edge SOC with Threat Detection</h3>
+                    <p>Developed a Federated Learning-Enhanced Edge Security Operations Center integrating decentralized anomaly detection and real-time threat correlation.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Federated Learning</span>
+                        <span class="tech-tag">Cybersecurity</span>
+                        <span class="tech-tag">ML</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🎬</div>
+                    <h3>College Advertisement Video</h3>
+                    <p>Produced and edited a professional college advertisement featuring on-site shooting, color correction, and motion graphics. Delivered broadcast-quality promotional content.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Video Production</span>
+                        <span class="tech-tag">CapCut</span>
+                        <span class="tech-tag">Premiere Pro</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🎮</div>
+                    <h3>3D Game Development</h3>
+                    <p>Completed comprehensive certification in Unity 3D game development, gaining expertise in game mechanics, physics, and interactive storytelling.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">3D</span>
+                        <span class="tech-tag">Game Dev</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">🎨</div>
+                    <h3>3D Modeling & Rendering</h3>
+                    <p>Advanced proficiency in Blender for creating stunning 3D models, complex animations, and photorealistic renders. Combining artistic vision with technical precision.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">3D Art</span>
+                        <span class="tech-tag">Rendering</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">📱</div>
+                    <h3>Social Media Content</h3>
+                    <p>Designed and created engaging social media graphics, posters, and visual content using Canva. Building compelling brand narratives through design excellence.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Canva</span>
+                        <span class="tech-tag">Graphic Design</span>
+                        <span class="tech-tag">Content</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section>
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-showcase">
+                <div class="skill-card"><h4>Canva</h4></div>
+                <div class="skill-card"><h4>CapCut</h4></div>
+                <div class="skill-card"><h4>Premiere Pro</h4></div>
+                <div class="skill-card"><h4>After Effects</h4></div>
+                <div class="skill-card"><h4>Blender</h4></div>
+                <div class="skill-card"><h4>Java</h4></div>
+                <div class="skill-card"><h4>UiPath</h4></div>
+                <div class="skill-card"><h4>SQL</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2 style="margin-bottom: 1rem;">Let's Connect</h2>
+                <p style="color: #cbd5e1; margin-bottom: 2rem;">I'm always interested in hearing about new projects and opportunities.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-label">📱 Phone</div>
+                        <a href="tel:+917904410406">+91 7904410406</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">📧 Email</div>
+                        <a href="mailto:akashtheevill47478@gmail.com">akashtheevill47478@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div cla
